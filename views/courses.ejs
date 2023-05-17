@@ -1,0 +1,139 @@
+<%- include("partials/header") -%>
+<div class="subject_name_division">
+    <!-- <h1 style="padding:5px;">Introduction to</h1> -->
+    <h2 style="font-family: Helvetica;"><%= subject_title %></h2>
+</div>
+<!-- <div class="sidebar">
+    <a href="#">syllabus</a>
+    <a href="#">readings</a>
+    <a href="#">Lecture Slides</a>
+    <a href="#">Assignments</a>
+</div> -->
+
+<div class="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active " aria-current="page" href="#" onclick="showSection('Syllabus')">Syllabus</a>
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active " aria-current="page" href="#" onclick="showSection('Readings')">Readings</a>
+              
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active " aria-current="page" href="#" onclick="showSection('LectureSlides')">LectureSlides</a>
+        </li>
+      </ul>
+  </div>
+  <div class="row">
+
+  
+  <div class="information col-lg-9">
+    <div id="Syllabus" class="temp_division">
+      <h1 style="font-weight: 700;">Syllabus</h1>
+      <hr>
+      <div class="subpre">
+        <h2 style="font-weight: 600;">Pre-requisties</h2>
+        
+        <ul class="reading_list">
+          <%
+            for(var i = 0;i<Prereq.length;i++){%>
+                <li><%= Prereq[i]%></li>
+            <%}
+          %>
+        </ul>
+      </div>
+      
+      <div class="subsyl">
+
+        <h2 style="font-weight: 600;">Detailed Syllabus</h2>
+        
+          <%
+            for(var i =0;i<Syllabuspara.length;i++){%>
+              <P style="font-size: 24px;"><%= Syllabuspara[i] %></P> 
+            <%}
+          %>
+
+      </div>
+    
+      
+    </div>
+    <div id="Readings" class="temp_division">
+      <h1 style="font-weight: 700;">Readings</h1>
+    
+      <ul class="reading_list">
+        <%
+        
+            for(var i =0;i<Readings.length;i++){%>
+                <li><%= Readings[i] %></li>
+            <%}
+        %>
+    </ul>
+    </div>    
+    <div id="LectureSlides" class="temp_division lecture_division">
+      <h1 style="font-weight: 700;">LectureSlides</h1>
+      <hr>
+      <table>
+        <thead>
+          <tr>
+            <th>sol.no</th>
+            <th>TopicName</th>
+            <th>link</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%
+        
+          for(var j = 0;j<topic_names.length;j++){%>
+
+            <tr>
+              <td><%=j+1 %></td>
+              <td><%= topic_names[j]%></td>
+              <td><a href="<%=topic_links[j]%>" target="_blank">Click here</a></td>
+            </tr>
+          <%}
+        
+        %>
+        </tbody>
+    </table>
+      
+    </div>  
+  </div>  
+    
+    <div class="faculty_details col-lg-2">
+      <!-- <div class="divsion_header">
+        <button id="arrow_left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg></button>
+      </div> -->
+      <div id="divsion_content">
+        <div class="title">
+          <h6>Course Info</h6>
+        </div>
+        <div>
+          <h6 style="margin-bottom:15px;">INSTRUCTOR</h6>
+          <p style="margin-bottom: 30px;"><%= instructor_name %></p>
+
+          <h6 style="margin-bottom:15px;">Departments</h6>
+          <p style="margin-bottom: 30px;"><%= dept %></p>
+
+          <h6 style="margin-bottom:15px;">LEARNING RESOURCE TYPES</h6>
+          <p style="margin-bottom:15px;">Lecture Notes</p>
+          <p style="margin-bottom: 30px;">Projects</p>
+
+          <h6 style="margin-bottom:15px;">E-mail</h6>
+          <a href="#"><%= email %></a>
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+<%- include("partials/footer") -%>
